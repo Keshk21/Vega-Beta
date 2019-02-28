@@ -24,7 +24,9 @@ namespace Vega.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("MakeName");
+                    b.Property<string>("MakeName")
+                        .IsRequired()
+                        .HasMaxLength(225);
 
                     b.HasKey("Id");
 
@@ -39,13 +41,15 @@ namespace Vega.Migrations
 
                     b.Property<int>("MakeId");
 
-                    b.Property<string>("ModelName");
+                    b.Property<string>("ModelName")
+                        .IsRequired()
+                        .HasMaxLength(225);
 
                     b.HasKey("Id");
 
                     b.HasIndex("MakeId");
 
-                    b.ToTable("Model");
+                    b.ToTable("Models");
                 });
 
             modelBuilder.Entity("Vega.Models.Model", b =>
