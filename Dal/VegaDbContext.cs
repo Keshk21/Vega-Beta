@@ -10,6 +10,6 @@ namespace Vega.Dal
         {
             
         }
-        public DbSet<Make> MAks  { get; set; }
+        public DbSet<Make> Makes  { get; set; }
     }
 }       

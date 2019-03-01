@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Vega.Migrations
 {
-    public partial class ApplyDataAnotations : Migration
+    public partial class IntialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "MAks",
+                name: "Makes",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -17,7 +17,7 @@ namespace Vega.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MAks", x => x.Id);
+                    table.PrimaryKey("PK_Makes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -33,9 +33,9 @@ namespace Vega.Migrations
                 {
                     table.PrimaryKey("PK_Models", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Models_MAks_MakeId",
+                        name: "FK_Models_Makes_MakeId",
                         column: x => x.MakeId,
-                        principalTable: "MAks",
+                        principalTable: "Makes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -52,7 +52,7 @@ namespace Vega.Migrations
                 name: "Models");
 
             migrationBuilder.DropTable(
-                name: "MAks");
+                name: "Makes");
         }
     }
 }

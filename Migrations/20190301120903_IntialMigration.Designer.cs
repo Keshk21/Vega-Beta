@@ -9,8 +9,8 @@ using Vega.Dal;
 namespace Vega.Migrations
 {
     [DbContext(typeof(VegaDbContext))]
-    [Migration("20190228084940_ApplyDataAnotations")]
-    partial class ApplyDataAnotations
+    [Migration("20190301120903_IntialMigration")]
+    partial class IntialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,7 +32,7 @@ namespace Vega.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MAks");
+                    b.ToTable("Makes");
                 });
 
             modelBuilder.Entity("Vega.Models.Model", b =>
