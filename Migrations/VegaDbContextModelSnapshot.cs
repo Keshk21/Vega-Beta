@@ -34,7 +34,7 @@ namespace Vega.Migrations
 
                     b.HasIndex("ModelId");
 
-                    b.ToTable("Feature");
+                    b.ToTable("Features");
                 });
 
             modelBuilder.Entity("Vega.Models.Make", b =>

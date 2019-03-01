@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Vega.Models
 {
-    [Table("Feature")]
+    [Table("Features")]
     public class Feature
     {
         public int Id { get; set; }
