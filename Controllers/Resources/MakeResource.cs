@@ -5,7 +5,7 @@ namespace Vega.Controllers.Resources
 {
     public class MakeResource
     {
-        public int Id { get; set; }
+        public int MakeId { get; set; }
         
         public string MakeName { get; set; }
         public ICollection<ModelResource>  Models { get; set; }

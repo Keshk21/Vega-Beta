@@ -8,7 +8,7 @@ namespace Vega.Models
     [Table("Models")]
     public class Model
     {
-        public int Id { get; set; }
+        public int ModelId { get; set; }
          [Required]
         [StringLength (225)]
         public string ModelName { get; set; }
