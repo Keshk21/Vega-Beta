@@ -8,7 +8,7 @@ namespace Vega.Models
 
     public class Make
     {
-        public int Id { get; set; }
+        public int MakeId { get; set; }
         [Required]
         [StringLength (225)]
         public string MakeName { get; set; }
