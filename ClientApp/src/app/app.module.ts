@@ -13,6 +13,7 @@ import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
 import { MakeService } from './Services/make.service';
 import {Http} from '@angular/http';
 import { HttpModule } from '@angular/http';
+import { FeatureService } from './Services/feature.service';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { HttpModule } from '@angular/http';
     VehicleFormComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+  
+  BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     HttpModule,
     FormsModule,
@@ -37,7 +39,8 @@ import { HttpModule } from '@angular/http';
     ])
   ],
   providers: [
-    MakeService
+    MakeService,
+    FeatureService
   ],
   bootstrap: [AppComponent]
 })

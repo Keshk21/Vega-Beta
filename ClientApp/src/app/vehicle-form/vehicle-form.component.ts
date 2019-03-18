@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { MakeService } from './../Services/make.service';
 import { Console } from '@angular/core/src/console';
+import { FeatureService } from './../Services/feature.service';
+
 
 @Component({
   selector: 'app-vehicle-form',
@@ -11,24 +13,40 @@ export class VehicleFormComponent implements OnInit {
   makes: any[];
   models:any[];
   Vehicle: any= {} ;
+  features:any[];
 
 
-  constructor(private makeservice: MakeService) { }
+  constructor(private makeservice: MakeService, private featureService:FeatureService) { }
   ngOnInit() {
   // this.makes= this.makeservice.getMakes().subscribe(makes=> this.makes=makes);
   this.makeservice.getMakes().subscribe(makes =>{this.makes=makes
     console.log("MAKes",this.makes); 
   })
-
+  this.featureService.getFeatures().subscribe(features => this.features=features);
   }
   onMakeChange()
   {
     var SelectedMake =this.makes.find(m=> m.makeId == this.Vehicle.make);
-      this.models=SelectedMake.models;
+      this.models = SelectedMake ? SelectedMake.models:[];
 
-    console.log("vehicle", this.Vehicle); 
+     //this.onfeaturechange();
+
+    console.log("vehicle", this.Vehicle);   
     console.log("Models", this.models); 
 
    
   }  
+  onModelChange()
+  {
+    var SelectModel = this.models.find(m => m.modelId == this.Vehicle.model);
+      this.features = SelectModel.features;
+      //this.features = Selectfeature ? Selectfeature.features:[];
+
+
+    console.log("Feature", this.features); 
+
+
+    
+  }  
+  
 }

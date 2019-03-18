@@ -27,5 +27,5 @@ namespace Vega.Controllers
             return mapper.Map<IList<Model>,List<ModelResource>>(models);
 
         }
-    }
+    }   
 }
