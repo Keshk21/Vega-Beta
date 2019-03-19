@@ -8,19 +8,19 @@
 </select>
 </div>
 <div class="form-group">    
-    <label for="models">Model</label>
-    <select id="model" class="form-control"(change)="onModelChange()" [(ngModel)]="Vehicle.model" name="Model"> 
+    <label for="model">Model</label>
+    <select id="Model" class="form-control"(change)="onModelChange()" [(ngModel)]="Vehicle.model" name="model"> 
         <option value=""></option>
-        <option *ngFor="let m of models" value = "{m.modleId}}"> {{m.modelName}} 
+        <option *ngFor="let m of models" value = "{{m.modelId}}"> {{m.modelName}} 
         </option>
         
     </select>
 </div>
 <div class="form-group">    
-    <label for="features">features</label>
-    <select id="feature" class="form-control"> 
+    <label for="features">Features</label>
+    <select id="features" class="form-control"> 
         <option value=""></option>
-        <option *ngFor="let f of features" value = "{f.Id}}"> {{f.featureName}} 
+        <option *ngFor="let f of features" value = "{{f.id}}}"> {{f.featureName}} 
         </option>
         
     </select>

@@ -14,6 +14,7 @@ import { MakeService } from './Services/make.service';
 import {Http} from '@angular/http';
 import { HttpModule } from '@angular/http';
 import { FeatureService } from './Services/feature.service';
+import { ModelService } from './Services/model.service';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { FeatureService } from './Services/feature.service';
   ],
   imports: [
   
+
   BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     HttpModule,
@@ -40,7 +42,8 @@ import { FeatureService } from './Services/feature.service';
   ],
   providers: [
     MakeService,
-    FeatureService
+    FeatureService,
+    ModelService
   ],
   bootstrap: [AppComponent]
 })

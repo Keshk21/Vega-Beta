@@ -2,6 +2,7 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { MakeService } from './../Services/make.service';
 import { Console } from '@angular/core/src/console';
 import { FeatureService } from './../Services/feature.service';
+import { ModelService } from './../Services/model.service';
 
 
 @Component({
@@ -14,15 +15,22 @@ export class VehicleFormComponent implements OnInit {
   models:any[];
   Vehicle: any= {} ;
   features:any[];
+  Modelf:any[];
 
 
-  constructor(private makeservice: MakeService, private featureService:FeatureService) { }
+  constructor(private makeservice: MakeService,
+     private featureService:FeatureService, private modelservice: ModelService) { }
   ngOnInit() {
   // this.makes= this.makeservice.getMakes().subscribe(makes=> this.makes=makes);
+
   this.makeservice.getMakes().subscribe(makes =>{this.makes=makes
     console.log("MAKes",this.makes); 
   })
-  this.featureService.getFeatures().subscribe(features => this.features=features);
+
+ this.modelservice.getmodels().subscribe(Models=>{this.Modelf=Models
+console.log("ModlelF",this.Modelf)});
+
+  //this.featureService.getFeatures().subscribe(features => this.features=features);
   }
   onMakeChange()
   {
@@ -38,12 +46,12 @@ export class VehicleFormComponent implements OnInit {
   }  
   onModelChange()
   {
-    var SelectModel = this.models.find(m => m.modelId == this.Vehicle.model);
+    var SelectModel = this.Modelf.find(m => m.modelId == this.Vehicle.model);
       this.features = SelectModel.features;
       //this.features = Selectfeature ? Selectfeature.features:[];
 
 
-    console.log("Feature", this.features); 
+  console.log("Feature", this.features); 
 
 
     
