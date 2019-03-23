@@ -16,13 +16,17 @@
         
     </select>
 </div>
-<div class="form-group">    
-    <label for="features">Features</label>
-    <select id="features" class="form-control"> 
-        <option value=""></option>
-        <option *ngFor="let f of features" value = "{{f.id}}}"> {{f.featureName}} 
-        </option>
-        
-    </select>
+<p>Is this Vehcile registerd</p>
+<div class="redio">
+    <label for="">
+    <input type="radio">
+</label>
 </div>
+
+<h2 style="color:blueviolet">Features</h2>
+<div *ngFor="let f of features" class="checkbox">
+    <Label for=" feature {{f.id}}">
+        <input type="checkbox" id="feature{{f.id}}"> {{f.featureName}}
+    </Label>
+    </div>     
 </form>     
