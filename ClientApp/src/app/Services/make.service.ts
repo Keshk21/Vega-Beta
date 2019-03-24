@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 
 @Injectable()
-export class MakeService {
+export class VehicleService {
 
   constructor(private http:Http) { 
     

@@ -17,11 +17,13 @@
     </select>
 </div>
 <p>Is this Vehcile registerd</p>
-<div class="redio">
-    <label for="">
-    <input type="radio">
+    <label for="registerd" class="radio-inline"> 
+    <input type="radio" name="Isregistered" id="registerd" value="true"> Yes
 </label>
-</div>
+        <label for="Notregisterd" class="radio-inline">
+        <input type="radio" name="Isregistered" id="Notregisterd" value="false"> No
+    </label>
+
 
 <h2 style="color:blueviolet">Features</h2>
 <div *ngFor="let f of features" class="checkbox">
@@ -29,4 +31,23 @@
         <input type="checkbox" id="feature{{f.id}}"> {{f.featureName}}
     </Label>
     </div>     
-</form>     
+    <h2 style= "color:rgb(88, 22, 114)">Contacts</h2>
+    <div class="form-gruop">
+        <label for="ContactName">Name</label>
+        <input id="ContactName" type="text" class="form-control">
+    </div>
+    <div class="form-gruop">
+        <label for="ContactPhone">Phone  </label>
+        <input id="ContactPhone" type="text" class="form-control">
+    </div>
+    <div class="form-gruop">
+         <label for="ContactEmail">Email</label>
+            <input id="ContactEmail" type="text" class="form-control">
+     </div>
+     <div class="form-gruop">
+         <label for="ContactAdress"> Adress<Address></Address></label>
+     <input id="ContactAdress" type="text" class="form-control">
+     </div>
+     <button class="btn btn-primry">Save</button>
+
+</form>         
