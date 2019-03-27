@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
-import { VehicleService } from './Services/make.service';
+import { MakeService } from './Services/make.service';
 import {Http} from '@angular/http';
 import { HttpModule } from '@angular/http';
 import { FeatureService } from './Services/feature.service';
@@ -41,7 +41,7 @@ import { ModelService } from './Services/model.service';
     ])
   ],
   providers: [
-    VehicleService,
+    MakeService,
     FeatureService,
     ModelService
   ],
