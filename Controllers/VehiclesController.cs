@@ -9,21 +9,20 @@ using System.Web.Http;
 
 namespace Vega.Controllers
 {
-    [Route ("Api/Vehicles")]
+    [Route("api/[controller]")]
     public class VehiclesController:Controller
     {
-       /* private IMapper mapper;
-        private VegaDbContext context;
+        /* private IMapper mapper;
+         private VegaDbContext context;
 
-         public VehiclesController(VegaDbContext context,IMapper mapper)
-        {
-           this.mapper = mapper;
-            this.context = context;
-            
-        }*/
-        [HttpPost]
-         [Route ("gg")]
-        public IActionResult CreateVehicle(Vehicle vehicle)
+          public VehiclesController(VegaDbContext context,IMapper mapper)
+         {
+            this.mapper = mapper;
+             this.context = context;
+
+         }*/
+        [HttpPost("[action]")]
+        public IActionResult CreateVehicle([FromBody] Vehicle vehicle)
         {
             return Ok(vehicle);
         }
