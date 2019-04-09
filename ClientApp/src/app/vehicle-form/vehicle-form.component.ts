@@ -16,6 +16,8 @@ export class VehicleFormComponent implements OnInit {
   Vehicle: any= {} ;
   features:any[];
   Modelf:any[];
+  msg:string;
+
 
 
   constructor(private makeservice: MakeService,
@@ -53,8 +55,10 @@ console.log("ModlelF",this.Modelf)});
 
   console.log("Feature", this.features); 
 
-
-    
+   
   }  
-  
+
+clickEvent(){
+ this.msg='Button is Clicked';
+ return this.msg;
 }
