@@ -1,15 +1,18 @@
 <h1 style="color: rgb(218, 17, 17);">New Vehicle</h1>
+<p>
+    {{Vehicle | json}}
+</p>
 <form>
     <div class="form-group">
     <label for="makes">Make</label>
-    <select id="makes" class="form-control" (change)="onMakeChange()" [(ngModel)]="Vehicle.make" name="Make" > 
+    <select id="makes" class="form-control" (change)="onMakeChange()" [(ngModel)]="Vehicle.makeId" name="makeId" > 
     <option value=""></option>
     <option *ngFor="let m of makes" value="{{m.makeId}}">{{m.makeName}}</option>
 </select>
 </div>
 <div class="form-group">    
     <label for="model">Model</label>
-    <select id="Model" class="form-control"(change)="onModelChange()" [(ngModel)]="Vehicle.model" name="model"> 
+    <select id="Model" class="form-control"(change)="onModelChange()" [(ngModel)]="Vehicle.modelId" name="modelId"> 
         <option value=""></option>
         <option *ngFor="let m of models" value = "{{m.modelId}}"> {{m.modelName}} 
         </option>
@@ -17,18 +20,18 @@
     </select>
 </div>
 <p>Is this Vehcile registerd</p>
-    <label for="registerd" class="radio-inline"> 
-    <input type="radio" name="Isregistered" id="registerd" value="true"> Yes
-</label>
-        <label for="Notregisterd" class="radio-inline">
-        <input type="radio" name="Isregistered" id="Notregisterd" value="false"> No
-    </label>
+    <label for="registered" class="radio-inline"> 
+    <input type="radio"  id="registered" value="true" [(ngModel)]="Vehicle.IsRegistered" name="IsRegistered">
+      Yes </label>
+     <label for="Notregisterd" class="radio-inline">
+        <input type="radio" id="Notregisterd" value="false" [(ngModel)]="Vehicle.IsRegistered" name="IsRegistered"> 
+     No</label>
 
 
 <h2 style="color:blueviolet">Features</h2>
 <div *ngFor="let f of features" class="checkbox">
     <Label for=" feature {{f.id}}">
-        <input type="checkbox" id="feature{{f.id}}"> {{f.featureName}}
+        <input type="checkbox" id="feature{{f.id}}" (change)="onFeatureToggle(f.id, $event)"> {{f.featureName}}
     </Label>
     </div>     
     <h2 style= "color:rgb(88, 22, 114)">Contacts</h2>

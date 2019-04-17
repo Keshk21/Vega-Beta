@@ -15,6 +15,8 @@ import {Http} from '@angular/http';
 import { HttpModule } from '@angular/http';
 import { FeatureService } from './Services/feature.service';
 import { ModelService } from './Services/model.service';
+import { VehicleService } from './Services/vehicle.service';
+
 
 
 @NgModule({
@@ -27,7 +29,7 @@ import { ModelService } from './Services/model.service';
     VehicleFormComponent,
   ],
   imports: [
-  
+
 
   BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
@@ -43,7 +45,8 @@ import { ModelService } from './Services/model.service';
   providers: [
     MakeService,
     FeatureService,
-    ModelService
+    ModelService,
+    VehicleService
   ],
   bootstrap: [AppComponent]
 })

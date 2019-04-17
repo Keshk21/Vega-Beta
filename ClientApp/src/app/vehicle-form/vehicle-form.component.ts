@@ -3,6 +3,7 @@ import { MakeService } from './../Services/make.service';
 import { Console } from '@angular/core/src/console';
 import { FeatureService } from './../Services/feature.service';
 import { ModelService } from './../Services/model.service';
+import { VehicleService } from './../Services/vehicle.service';
 
 
 @Component({
@@ -13,15 +14,21 @@ import { ModelService } from './../Services/model.service';
 export class VehicleFormComponent implements OnInit {
   makes: any[];
   models:any[];
-  Vehicle: any= {} ;
+  Vehicle: any= {
+    features:[]
+  } ;
   features:any[];
   Modelf:any[];
   msg:string;
+  IsRegistered: any[];
+  
+
 
 
 
   constructor(private makeservice: MakeService,
-     private featureService:FeatureService, private modelservice: ModelService) { }
+     private featureService:FeatureService, private modelservice: ModelService, 
+     private vehicleService : VehicleService) { }
   ngOnInit() {
   // this.makes= this.makeservice.getMakes().subscribe(makes=> this.makes=makes);
 
@@ -36,8 +43,13 @@ console.log("ModlelF",this.Modelf)});
   }
   onMakeChange()
   {
-    var SelectedMake =this.makes.find(m=> m.makeId == this.Vehicle.make);
+    var SelectedMake =this.makes.find(m=> m.makeId == this.Vehicle.makeId);
       this.models = SelectedMake ? SelectedMake.models:[];
+      delete this.Vehicle.modelId;   
+      this.Vehicle.features=[];
+   
+
+
 
      //this.onfeaturechange();
 
@@ -48,17 +60,30 @@ console.log("ModlelF",this.Modelf)});
   }  
   onModelChange()
   {
-    var SelectModel = this.Modelf.find(m => m.modelId == this.Vehicle.model);
+    var SelectModel = this.Modelf.find(m => m.modelId == this.Vehicle.modelId);
       this.features = SelectModel.features;
       //this.features = Selectfeature ? Selectfeature.features:[];
 
+      this.Vehicle.features=[];
 
   console.log("Feature", this.features); 
 
    
   }  
+  onFeatureToggle(featureId, $event){
+    if($event.target.checked)
+    this.Vehicle.features.push(featureId);
+    else{
+      var index =this.Vehicle.features.indexOf(featureId);
+      this.Vehicle.features.splice(index,1);
+    }
 
-clickEvent(){
- this.msg='Button is Clicked';
+  }
+
+clickEvent()
+{
+this.vehicleService.AddVehicle(this.Vehicle);
+  this.msg='Button is Clicked';
  return this.msg;
+}
 }
