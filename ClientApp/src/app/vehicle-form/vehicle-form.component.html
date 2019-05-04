@@ -5,16 +5,16 @@
 <form>
     <div class="form-group">
     <label for="makes">Make</label>
-    <select id="makes" class="form-control" (change)="onMakeChange()" [(ngModel)]="Vehicle.makeId" name="makeId" > 
+    <select id="makes" class="form-control" (change)="onMakeChange()" [(ngModel)]="Vehicle.MakeId" name="MakeId" > 
     <option value=""></option>
     <option *ngFor="let m of makes" value="{{m.makeId}}">{{m.makeName}}</option>
 </select>
 </div>
 <div class="form-group">    
     <label for="model">Model</label>
-    <select id="Model" class="form-control"(change)="onModelChange()" [(ngModel)]="Vehicle.modelId" name="modelId"> 
+    <select id="Model" class="form-control"(change)="onModelChange()" [(ngModel)]="Vehicle.ModelId" name="ModelId"> 
         <option value=""></option>
-        <option *ngFor="let m of models" value = "{{m.modelId}}"> {{m.modelName}} 
+        <option *ngFor="let m of models" value = "{{m.ModelId}}"> {{m.modelName}} 
         </option>
         
     </select>
@@ -37,19 +37,19 @@
     <h2 style= "color:rgb(88, 22, 114)">Contacts</h2>
     <div class="form-gruop">
         <label for="ContactName">Name</label>
-        <input id="ContactName" type="text" class="form-control">
+        <input id="ContactName" type="text" class="form-control" [(ngModel)]="Vehicle.ContactName" name="ContactName">
     </div>
     <div class="form-gruop">
         <label for="ContactPhone">Phone  </label>
-        <input id="ContactPhone" type="text" class="form-control">
+        <input id="ContactPhone" type="text" class="form-control" [(ngModel)]="Vehicle.ContactPhone" name="ContactPhone">
     </div>
     <div class="form-gruop">
          <label for="ContactEmail">Email</label>
-            <input id="ContactEmail" type="text" class="form-control">
+            <input id="ContactEmail" type="text" class="form-control" [(ngModel)]="Vehicle.ContactEmail" name="ContactEmail">
      </div>
      <div class="form-gruop">
          <label for="ContactAdress"> Adress<Address></Address></label>
-     <input id="ContactAdress" type="text" class="form-control">
+     <input id="ContactAdress" type="text" class="form-control" [(ngModel)]="Vehicle.ContactAdress" name="ContactAdress">
      </div>
      <h2>{{msg}}</h2>
      <button class="btn btn-primry" (click)="clickEvent()">Save</button>

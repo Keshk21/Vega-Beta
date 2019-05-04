@@ -43,7 +43,7 @@ console.log("ModlelF",this.Modelf)});
   }
   onMakeChange()
   {
-    var SelectedMake =this.makes.find(m=> m.makeId == this.Vehicle.makeId);
+    var SelectedMake =this.makes.find(m=> m.makeId == this.Vehicle.MakeId);
       this.models = SelectedMake ? SelectedMake.models:[];
       delete this.Vehicle.modelId;   
       this.Vehicle.features=[];
@@ -60,7 +60,7 @@ console.log("ModlelF",this.Modelf)});
   }  
   onModelChange()
   {
-    var SelectModel = this.Modelf.find(m => m.modelId == this.Vehicle.modelId);
+    var SelectModel = this.Modelf.find(m => m.ModelId == this.Vehicle.modelId);
       this.features = SelectModel.features;
       //this.features = Selectfeature ? Selectfeature.features:[];
 
@@ -82,7 +82,7 @@ console.log("ModlelF",this.Modelf)});
 
 clickEvent()
 {
-this.vehicleService.AddVehicle(this.Vehicle);
+this.vehicleService.AddVehicle(this.Vehicle).subscribe(x=> console.log(x));
   this.msg='Button is Clicked';
  return this.msg;
 }
